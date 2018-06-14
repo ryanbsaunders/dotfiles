@@ -42,9 +42,6 @@ alias vbu='vagrant box update'
 # VirtualBox
 alias vbm='VBoxManage'
 
-# $dayjob alises
-#alias infv="cd ~/code/cmm/infrastructure/vagrant" #Quickly move to the Vagrant working directory
-
 # Set GitHub Hub Alias
 eval "$(hub alias -s)" 
 
@@ -60,9 +57,6 @@ function ghe() {
 # Manage Path
 export PATH="/usr/local/sbin:$PATH"
 export GOPATH="$HOME/go/bin"
-
-# Set Ansible config
-# export ANSIBLE_CONFIG="~/.ansible.cfg"
 
 # Set the default editor to Vim
 export EDITOR=/usr/bin/vim

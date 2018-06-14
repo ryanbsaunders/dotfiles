@@ -88,6 +88,3 @@ nnoremap <Leader>ne :NERDTree<CR>
 set expandtab
 set shiftwidth=2
 set tabstop=2
-
-let ghe_https_urls=$GHE_HTTPS_URLS
-let g:github_enterprise_urls=["https://"+"git.innova-partners.com"]
