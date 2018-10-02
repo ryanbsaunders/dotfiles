@@ -20,6 +20,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'PProvost/vim-ps1'         " Powershell syntax support
 Plugin 'pearofducks/ansible-vim'  " Ansible syntax support
 Plugin 'vim-scripts/groovy.vim'   " Groovy syntax support
+Plugin 'yorokobi/vim-splunk'      " Splunk conf syntax support
+
 call vundle#end()
 
 " Basic configuration
