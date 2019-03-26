@@ -21,6 +21,7 @@ Plugin 'PProvost/vim-ps1'         " Powershell syntax support
 Plugin 'pearofducks/ansible-vim'  " Ansible syntax support
 Plugin 'vim-scripts/groovy.vim'   " Groovy syntax support
 Plugin 'yorokobi/vim-splunk'      " Splunk conf syntax support
+Plugin 'hashivim/vim-terraform'   " Terraform support
 
 call vundle#end()
 
