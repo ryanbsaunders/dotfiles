@@ -25,8 +25,15 @@ Plugin 'hashivim/vim-terraform'   " Terraform support
 
 call vundle#end()
 
-" Basic configuration
-colorscheme badwolf
+" Set the colorscheme if available
+try
+  colorscheme dracula
+catch /^Vim\%((\a\+)\)\=:E185/
+  colorscheme default
+  set background=dark
+endtry
+
+""" Basic configuration
 set nocompatible    " No vi compatibility
 set mouse=    " Disable the damn mouse
 set shell=/bin/bash
