@@ -27,7 +27,7 @@ call vundle#end()
 
 " Set the colorscheme if available
 try
-  colorscheme dracula
+  colorscheme badwolf
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme default
   set background=dark
