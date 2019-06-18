@@ -22,6 +22,7 @@ Plugin 'pearofducks/ansible-vim'  " Ansible syntax support
 Plugin 'vim-scripts/groovy.vim'   " Groovy syntax support
 Plugin 'yorokobi/vim-splunk'      " Splunk conf syntax support
 Plugin 'hashivim/vim-terraform'   " Terraform support
+Plugin 'darfink/vim-plist'        " plist support
 
 call vundle#end()
 
@@ -44,7 +45,10 @@ syntax on   " Turn on syntax highlighting
 filetype plugin indent on   " Turn on filetype detection plugin
 
 " Set a leader
-:let mapleader=","
+let mapleader=","
+
+" set pastetoggle
+set pastetoggle=<F11>
 
 " Mappings
 inoremap jk <ESC>
