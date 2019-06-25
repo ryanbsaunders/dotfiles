@@ -31,6 +31,7 @@ user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.tabs.warnOnCloseOtherTabs", false);
 user_pref("browser.tabs.warnOnOpen", false);
 user_pref("browser.aboutConfig.showWarning", false);
+user_pref("general.warnOnAboutConfig", false);
 
 /*************************************************************************/
 /* containers */
@@ -94,5 +95,5 @@ user_pref("signon.rememberSignons", false); // do not remember passwords
 
 /*************************************************************************/
 /* search */
-user_pref("keyword.enabled", false); // do not submit invalid URIs to search engines
+user_pref("keyword.enabled", true); // do not submit invalid URIs to search engines (disable location bar search)
 user_pref("browser.fixup.alternate.enabled", false); // do not fixup and mess with queries
