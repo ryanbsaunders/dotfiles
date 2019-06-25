@@ -86,7 +86,7 @@ user_pref("extensions.formautofill.available", "off");
 user_pref("extensions.formautofill.creditCards.enabled", false);
 user_pref("extensions.formautofill.heuristics.enabled", false);
 
-user_pref("extensions.webcompat-reporter.enabled", false) // disable web compatibility reporting (report site issue)
+user_pref("extensions.webcompat-reporter.enabled", false); // disable web compatibility reporting (report site issue)
 
 
 /*************************************************************************/
