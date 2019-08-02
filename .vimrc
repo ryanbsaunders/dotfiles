@@ -102,3 +102,13 @@ nnoremap <Leader>ne :NERDTree<CR>
 set expandtab
 set shiftwidth=2
 set tabstop=2
+
+" make navigation easier
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" make splitting panes not stupid
+set splitbelow
+set splitright
