@@ -42,17 +42,19 @@ alias vbu='vagrant box update'
 # VirtualBox
 alias vbm='VBoxManage'
 
-# Set GitHub Hub Alias
-eval "$(hub alias -s)" 
+if command -v hub &> /dev/null; then
+  # Set GitHub Hub Alias
+  eval "$(hub alias -s)" 
 
-# Use Hub with GitHub Enterprise
-function ghe() {
-  GITHUB_HOST=$GITHUB_ENTERPRISE_DOMAIN git $*
+  # Use Hub with GitHub Enterprise
+  function ghe() {
+    GITHUB_HOST=$GITHUB_ENTERPRISE_DOMAIN git $*
+    }
+
+    function ghe-setup() {
+      git config --add hub.host $GITHUB_ENTERPRISE_DOMAIN
   }
-
-  function ghe-setup() {
-    git config --add hub.host $GITHUB_ENTERPRISE_DOMAIN
-}
+fi
 
 # Manage Path
 export PATH="/usr/local/sbin:$PATH"
