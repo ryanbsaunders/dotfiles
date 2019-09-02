@@ -1,21 +1,24 @@
+# set up bash
+export EDITOR=/usr/bin/vim # set the default editor to vim
+
+# manage path
+export PATH="/usr/local/sbin:$PATH"
+export GOPATH="$HOME/go/bin"
+
 # load ssh keys
 ssh-add -K ~/.ssh/keys/*
 
 # source bash secrets
 [[ -f ~/.bashrc.secrets ]] && . ~/.bashrc.secrets
 
-# set timestamps on history
-HISTTIMEFORMAT="%Y/%m/%d %T "
+# set up bash history
+HISTTIMEFORMAT="%Y/%m/%d %T " # set timestamps on history
+shopt -s histappend # append history immediately
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND" #append history immediately
+export HISTFILESIZE= #'umlimited' bash history
+export HISTSIZE= #'unlimited' bash history
 
-# append history immediately
-shopt -s histappend
-PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
-
-# 'umlimited' bash history
-export HISTFILESIZE=
-export HISTSIZE=
-
-# less shitty prompt
+# prompt
 export PS1="\[\e[38;5;048m\]\A\[\e[m\]: \[\e[38;5;208m\]\u\[\e[m\]@\W >  "
 
 # general aliases
@@ -67,13 +70,6 @@ if command -v hub &> /dev/null; then
       git config --add hub.host $GITHUB_ENTERPRISE_DOMAIN
   }
 fi
-
-# manage path
-export PATH="/usr/local/sbin:$PATH"
-export GOPATH="$HOME/go/bin"
-
-# set the default editor to vim
-export EDITOR=/usr/bin/vim
 
 # grep
 alias grep='grep --color=auto' #colorize grep output
