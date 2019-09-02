@@ -1,29 +1,34 @@
-# Load SSH Keys
+# load ssh keys
 ssh-add -K ~/.ssh/keys/*
 
-# Source bash secrets
+# source bash secrets
 [[ -f ~/.bashrc.secrets ]] && . ~/.bashrc.secrets
 
 # set timestamps on history
 HISTTIMEFORMAT="%Y/%m/%d %T "
 
-# Append history immediately
+# append history immediately
 shopt -s histappend
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
+# 'umlimited' bash history
+export HISTFILESIZE=
+export HISTSIZE=
 
 # less shitty prompt
 export PS1="\[\e[38;5;048m\]\A\[\e[m\]: \[\e[38;5;208m\]\u\[\e[m\]@\W >  "
 
-#####ALIASES######
-alias brup='brew update && brew upgrade && brew cleanup -s' #Update, Upgrade, and Cleanup Homebrew packages
+# general aliases
+alias brup='brew update && brew upgrade && brew cleanup -s' #update, upgrade, and cleanup homebrew packages
 alias lla='ls -la'
 alias ll='ls -l'
-alias vc='vimcat'
-alias vundleupdate='vim +BundleUpdate +BundleClean! +qall'  # Vundle update
-alias powercli='docker run --rm -it --entrypoint='/usr/bin/powershell' vmware/powerclicore'
-alias pubip='curl ifconfig.co;echo -n'
+alias vc='vimcat' #i never use this anymore.  can probably send it to space
+alias vundleupdate='vim +BundleUpdate +BundleClean! +qall'  # vundle update
+alias powercli='docker run --rm -it --entrypoint='/usr/bin/powershell' vmware/powerclicore' #run vmware powercli
+alias pubip='curl ifconfig.co;echo -n' #show our current public ip
+alias vbm='VBoxManage' #virtalbox manager
 
-# Github Aliases
+# github aliases
 alias gsb='git show-branch'
 alias gco='git checkout'
 alias gpo='git push origin'
@@ -36,7 +41,7 @@ alias gdf='git diff'
 alias gcam='git commit -am'
 alias gcm='git commit -m'
 
-# Vagrant Aliases
+# vagrant aliases
 alias vs='vagrant ssh'
 alias vd='vagrant destroy --force'
 alias vr='vagrant reload'
@@ -46,14 +51,14 @@ alias vp='vagrant provision'
 alias vst='vagrant status'
 alias vbu='vagrant box update'
 
-# VirtualBox
-alias vbm='VBoxManage'
-
+# set up hub if it is installed
+# https://github.com/github/hub
 if command -v hub &> /dev/null; then
-  # Set GitHub Hub Alias
+  # set gitgub Hub alias
   eval "$(hub alias -s)" 
 
-  # Use Hub with GitHub Enterprise
+  # use hub with github enterprise on a custom domain
+  # read custom ghe name from .bashsecrets
   function ghe() {
     GITHUB_HOST=$GITHUB_ENTERPRISE_DOMAIN git $*
     }
@@ -63,16 +68,16 @@ if command -v hub &> /dev/null; then
   }
 fi
 
-# Manage Path
+# manage path
 export PATH="/usr/local/sbin:$PATH"
 export GOPATH="$HOME/go/bin"
 
-# Set the default editor to Vim
+# set the default editor to vim
 export EDITOR=/usr/bin/vim
 
-# Grep color
-alias grep='grep --color=auto'
+# grep
+alias grep='grep --color=auto' #colorize grep output
 
-# Set up rbenv
+# set up rbenv
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/bin:$PATH"
