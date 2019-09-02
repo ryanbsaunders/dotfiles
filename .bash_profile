@@ -4,6 +4,10 @@ ssh-add -K ~/.ssh/keys/*
 # Source bash secrets
 [[ -f ~/.bashrc.secrets ]] && . ~/.bashrc.secrets
 
+# Append history immediately
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
 # less shitty prompt
 export PS1="\[\e[38;5;048m\]\A\[\e[m\]: \[\e[38;5;208m\]\u\[\e[m\]@\W >  "
 
@@ -14,7 +18,7 @@ alias ll='ls -l'
 alias vc='vimcat'
 alias vundleupdate='vim +BundleUpdate +BundleClean! +qall'  # Vundle update
 alias powercli='docker run --rm -it --entrypoint='/usr/bin/powershell' vmware/powerclicore'
-alias pubip='curl ipecho.net/plain;echo'
+alias pubip='curl ifconfig.co;echo -n'
 
 # Github Aliases
 alias gsb='git show-branch'
