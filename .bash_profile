@@ -38,6 +38,7 @@ alias gpo='git push origin'
 alias gcl='git clone'
 alias grh='git reset --hard'
 alias gpr='git pull-request -o'
+alias gci='git ci-status -v'
 alias gst='git status'
 alias gpl='git pull'
 alias gdf='git diff'
@@ -63,7 +64,7 @@ if command -v hub &> /dev/null; then
   # use hub with github enterprise on a custom domain
   # read custom ghe name from .bashsecrets
   function ghe() {
-    GITHUB_HOST=$GITHUB_ENTERPRISE_DOMAIN git $*
+    GITHUB_HOST=$GITHUB_ENTERPRISE_DOMAIN hub $*
     }
 
     function ghe-setup() {
