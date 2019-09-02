@@ -4,6 +4,9 @@ ssh-add -K ~/.ssh/keys/*
 # Source bash secrets
 [[ -f ~/.bashrc.secrets ]] && . ~/.bashrc.secrets
 
+# set timestamps on history
+HISTTIMEFORMAT="%Y/%m/%d %T "
+
 # Append history immediately
 shopt -s histappend
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
