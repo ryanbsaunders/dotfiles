@@ -23,6 +23,7 @@ Plugin 'vim-scripts/groovy.vim'   " Groovy syntax support
 Plugin 'yorokobi/vim-splunk'      " Splunk conf syntax support
 Plugin 'hashivim/vim-terraform'   " Terraform support
 Plugin 'darfink/vim-plist'        " plist support
+Plugin 'godlygeek/tabular'        " text filtering and alignment
 
 call vundle#end()
 
