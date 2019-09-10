@@ -71,6 +71,7 @@ user_pref("network.captive-portal-service.enabled", false);
 user_pref("network.connectivity-service.enabled", false); // disable network connectivity check
 
 user_pref("network.dnsCacheExpiration", 0);
+user_pref("network.dnsCacheExpirationGracePeriod", 0);
 user_pref("network.dnsCacheEntries", 0);
 
 /*************************************************************************/
