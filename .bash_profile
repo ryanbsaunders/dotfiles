@@ -75,4 +75,5 @@ fi
 # grep
 alias grep='grep --color=auto' #colorize grep output
 
+# set up rbenv
 eval "$(rbenv init -)"
