@@ -5,11 +5,6 @@ export EDITOR=/usr/bin/vim # set the default editor to vim
 export PATH="/usr/local/sbin:$PATH"
 export GOPATH="$HOME/go/bin"
 
-# set rubygems path
-if which ruby >/dev/null && which gem >/dev/null; then
-      PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-fi
-
 # load ssh keys
 ssh-add -K ~/.ssh/keys/*
 
@@ -80,6 +75,4 @@ fi
 # grep
 alias grep='grep --color=auto' #colorize grep output
 
-# set up rbenv
 eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/bin:$PATH"
