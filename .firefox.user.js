@@ -82,6 +82,8 @@ user_pref("network.dnsCacheExpiration", 0);
 user_pref("network.dnsCacheExpirationGracePeriod", 0);
 user_pref("network.dnsCacheEntries", 0);
 
+user_pref("media.autoplay.default", 5);
+
 /*************************************************************************/
 /* safe browsing and blacklists */
 user_pref("app.normandy.enabled", false); // disable shield/normandy
