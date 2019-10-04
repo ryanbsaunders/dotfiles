@@ -33,6 +33,14 @@ user_pref("browser.tabs.warnOnOpen", false);
 user_pref("browser.aboutConfig.showWarning", false);
 user_pref("general.warnOnAboutConfig", false);
 
+
+/*************************************************************************/
+/* downloads */
+user_pref("browser.download.useDownloadDir", false); // always ask where to download files
+user_pref("browser.download.manager.addToRecentDocs", false); // disable adding downloads to the system's recent documents list
+user_pref("browser.download.hide_plugins_without_extensions", false); // disable hiding mime types not associated with a plugin
+user_pref("browser.download.forbid_open_with", true); // disabled 'open with' download dialog option
+
 /*************************************************************************/
 /* containers */
 user_pref("privacy.userContext.ui.enabled", true); // enable container tabs in preferences
