@@ -69,7 +69,6 @@ autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
 " Airline Configuration
 set laststatus=2    " Always enable status bar
 
-let g:airline_section_gutter = '%= %{strftime("%R")}'   " Add time
 let g:airline_powerline_fonts = 1   " User powerline fonts
 
 " Enable the list of buffers
