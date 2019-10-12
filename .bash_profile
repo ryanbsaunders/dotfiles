@@ -28,7 +28,7 @@ alias ll='ls -l'
 alias vc='vimcat' #i never use this anymore.  can probably send it to space
 alias vundleupdate='vim +BundleUpdate +BundleClean! +qall'  # vundle update
 alias powercli='docker run --rm -it --entrypoint='/usr/bin/powershell' vmware/powerclicore' #run vmware powercli
-alias pubip='curl ifconfig.co;echo -n' #show our current public ip
+alias pubip='curl https://ifconfig.co;echo -n' #show our current public ip
 alias vbm='VBoxManage' #virtalbox manager
 
 # github aliases
