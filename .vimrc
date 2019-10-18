@@ -53,8 +53,8 @@ set pastetoggle=<F9>
 
 " Mappings
 inoremap jk <ESC>
-noremap oo O<ESC>o
-noremap pp <F9>i
+noremap op O<ESC>o
+noremap tt <F9>i
 
 " Highlight unwanted characters
 set list
