@@ -49,10 +49,12 @@ filetype plugin indent on   " Turn on filetype detection plugin
 let mapleader=","
 
 " set pastetoggle
-set pastetoggle=<F11>
+set pastetoggle=<F9>
 
 " Mappings
 inoremap jk <ESC>
+noremap oo O<ESC>o
+noremap pp <F9>i
 
 " Highlight unwanted characters
 set list
