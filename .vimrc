@@ -51,6 +51,9 @@ let mapleader=","
 " set pastetoggle
 set pastetoggle=<F9>
 
+" configure clipboard
+set clipboard=unnamed
+
 " Mappings
 inoremap jk <ESC>
 noremap op O<ESC>o
