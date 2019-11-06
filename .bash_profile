@@ -80,3 +80,4 @@ eval "$(rbenv init -)"
 
 # on osx, put curl-openssl in path
 export PATH="/usr/local/opt/curl-openssl/bin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:$PATH"

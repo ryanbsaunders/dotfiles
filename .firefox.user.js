@@ -111,3 +111,21 @@ user_pref("signon.rememberSignons", false); // do not remember passwords
 /* search */
 user_pref("keyword.enabled", true); // do not submit invalid URIs to search engines (disable location bar search)
 user_pref("browser.fixup.alternate.enabled", false); // do not fixup and mess with queries
+
+/*************************************************************************/
+/* privacy */
+user_pref("network.proxy.socks_remote_dns", true); // force DNS to go over SOCKS proxy when proxy is enabled
+user_pref("network.cookie.lifetimePolicy", 2)
+
+/* shutdown */
+user_pref("privacy.sanitize.sanitizeOnShutdown", true); // delete history on shutdown
+user_pref("browser.cache.offline.enable", false); // disable the offline cache
+user_pref("offline-apps.allow_by_default", false); // enforce apps asking for offline storage
+user_pref("privacy.clearOnShutdown.cache", true);
+user_pref("privacy.clearOnShutdown.cookies", true);
+user_pref("privacy.clearOnShutdown.downloads", true); 
+user_pref("privacy.clearOnShutdown.formdata", true); // Form & Search History
+user_pref("privacy.clearOnShutdown.history", true); // Browsing & Download History
+user_pref("privacy.clearOnShutdown.offlineApps", true); // Offline Website Data
+user_pref("privacy.clearOnShutdown.sessions", true); // Active Logins
+user_pref("privacy.clearOnShutdown.siteSettings", false); // Site Preferences
