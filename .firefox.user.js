@@ -115,7 +115,7 @@ user_pref("browser.fixup.alternate.enabled", false); // do not fixup and mess wi
 /*************************************************************************/
 /* privacy */
 user_pref("network.proxy.socks_remote_dns", true); // force DNS to go over SOCKS proxy when proxy is enabled
-user_pref("network.cookie.lifetimePolicy", 2)
+user_pref("network.cookie.lifetimePolicy", 2);
 
 /* shutdown */
 user_pref("privacy.sanitize.sanitizeOnShutdown", true); // delete history on shutdown
