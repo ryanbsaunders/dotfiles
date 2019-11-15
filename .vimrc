@@ -86,7 +86,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " Allow a buffer to be hidden if modified
 set hidden
 
-""" Syntastic Configuration
+""" syntastic configuration
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
