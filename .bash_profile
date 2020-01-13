@@ -5,9 +5,6 @@ export EDITOR=/usr/bin/vim # set the default editor to vim
 export PATH="/usr/local/sbin:$PATH"
 export GOPATH="$HOME/go/bin"
 
-# load ssh keys
-ssh-add -K ~/.ssh/keys/*
-
 # source bash secrets
 [[ -f ~/.bashrc.secrets ]] && . ~/.bashrc.secrets
 
