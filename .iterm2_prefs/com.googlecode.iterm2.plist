@@ -10,6 +10,8 @@
 	<false/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
+	<key>ApplePressAndHoldEnabled</key>
+	<false/>
 	<key>AppleScrollAnimationEnabled</key>
 	<integer>0</integer>
 	<key>AppleSmoothFixedFontsSizeThreshold</key>
@@ -173,7 +175,7 @@
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>1480 1303 400 129 0 0 3360 1867 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>970 768 620 392 0 0 2560 1417 </string>
+	<string>3756 1001 620 392 3360 -623 1890 3337 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 126 606 469 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
@@ -959,14 +961,15 @@
 	<key>NoSyncAllAppVersions</key>
 	<array>
 		<string>3.3.6</string>
-		<string>3.3.2</string>
+		<string>3.3.4</string>
+		<string>3.3.8</string>
 		<string>3.3.1</string>
 		<string>3.3.3</string>
 		<string>3.3.5</string>
 		<string>3.3.7</string>
 		<string>3.2.9</string>
+		<string>3.3.2</string>
 		<string>3.3.0</string>
-		<string>3.3.4</string>
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
@@ -992,7 +995,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>B7E2961E-E2BB-40A9-8810-3694A253E2B5</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>71</integer>
+	<integer>80</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1749,11 +1752,6 @@
 			</dict>
 		</array>
 	</dict>
-	<key>NoSyncSearchHistory2</key>
-	<array>
-		<string>licensing</string>
-		<string>:vars</string>
-	</array>
 	<key>NoSyncSuppressClipboardAccessDeniedWarning</key>
 	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
@@ -1832,11 +1830,13 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-01-24T14:12:35Z</date>
+	<date>2020-02-13T14:13:18Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
+	<key>SUUpdateGroupIdentifier</key>
+	<integer>2280918150</integer>
 	<key>SUUpdateRelaunchingMarker</key>
-	<false/>
+	<true/>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>SearchCommand</key>
@@ -1906,6 +1906,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.7</string>
+	<string>3.3.8</string>
 </dict>
 </plist>
