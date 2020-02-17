@@ -71,6 +71,10 @@ if command -v hub &> /dev/null; then
   }
 fi
 
+function rmssh() {
+  ssh-keygen -R $1
+}
+
 # grep
 alias grep='grep --color=auto' #colorize grep output
 
