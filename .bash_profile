@@ -71,12 +71,21 @@ if command -v hub &> /dev/null; then
   }
 fi
 
+# remove old ssh host key
 function rmssh() {
   ssh-keygen -R $1
 }
+
+# show umask for given file
+function numask() {
+  find $1 -maxdepth 1 -printf "%m:%f\n"
+ }
 
 # grep
 alias grep='grep --color=auto' #colorize grep output
 
 # set up rbenv
 eval "$(rbenv init -)"
+
+# load homebrew gnubin path
+PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
