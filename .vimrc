@@ -1,29 +1,30 @@
-" Manage plugins with Vundle
+" manage plugins with vundle
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'    "Manage Vundle with Vundle
+Plugin 'VundleVim/Vundle.vim'     "manage vundle with vundle
 
-" Plugins to install with Vundle
+" plugins to install with vundle
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'sjl/badwolf'              " Colorscheme
-Plugin 'tpope/vim-fugitive'       " Git wrapper
-Plugin 'tpope/vim-rhubarb'        " GitHub plugin for vim-fugitive
+Plugin 'sjl/badwolf'              " colorscheme
+Plugin 'tpope/vim-fugitive'       " git wrapper
+Plugin 'tpope/vim-rhubarb'        " gitHub plugin for vim-fugitive
 Plugin 'airblade/vim-gitgutter'
-Plugin 'rodjek/vim-puppet'        " Puppet syntax support
-Plugin 'vim-ruby/vim-ruby'        " Ruby syntax support
+Plugin 'rodjek/vim-puppet'        " puppet syntax support
+Plugin 'vim-ruby/vim-ruby'        " ruby syntax support
 Plugin 'scrooloose/nerdtree'
-Plugin 'PProvost/vim-ps1'         " Powershell syntax support
-Plugin 'pearofducks/ansible-vim'  " Ansible syntax support
-Plugin 'vim-scripts/groovy.vim'   " Groovy syntax support
-Plugin 'yorokobi/vim-splunk'      " Splunk conf syntax support
-Plugin 'hashivim/vim-terraform'   " Terraform support
+Plugin 'PProvost/vim-ps1'         " powershell syntax support
+Plugin 'pearofducks/ansible-vim'  " ansible syntax support
+Plugin 'vim-scripts/groovy.vim'   " groovy syntax support
+Plugin 'yorokobi/vim-splunk'      " splunk conf syntax support
+Plugin 'hashivim/vim-terraform'   " terraform support
 Plugin 'darfink/vim-plist'        " plist support
 Plugin 'godlygeek/tabular'        " text filtering and alignment
+Plugin 'vimwiki/vimwiki'          " vimwiki for wiki stuff with vim
 
 call vundle#end()
 
@@ -36,14 +37,14 @@ catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 
 """ Basic configuration
-set nocompatible    " No vi compatibility
-set mouse=    " Disable the damn mouse
+set nocompatible                  " no vi compatibility
+set mouse=                        " disable the damn mouse
 set shell=/bin/bash
 set backspace=indent,eol,start
-set number    " show line numbers
-set cursorline " highlight current line
-syntax on   " Turn on syntax highlighting
-filetype plugin indent on   " Turn on filetype detection plugin
+set number                        " show line numbers
+set cursorline                    " highlight current line
+syntax on                         " turn on syntax highlighting
+filetype plugin indent on         " turn on filetype detection plugin
 
 " Set a leader
 let mapleader=","
@@ -54,16 +55,16 @@ set pastetoggle=<F9>
 " configure clipboard
 set clipboard=unnamed
 
-" Mappings
+" mappings
 inoremap jk <ESC>
 noremap op O<ESC>o
 noremap tt <F9>i
 
-" Highlight unwanted characters
+" highlight unwanted characters
 set list
 set listchars=tab:»·,trail:·
 
-" Jump to last position when re-opening a file
+" jump to last position when re-opening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g'\"" | endif
@@ -71,19 +72,19 @@ endif
 " except for git commits
 autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
 
-" Airline Configuration
-set laststatus=2    " Always enable status bar
+" airline configuration
+set laststatus=2    " always enable status bar
 
-let g:airline_powerline_fonts = 1   " User powerline fonts
+let g:airline_powerline_fonts = 1   " user powerline fonts
 
-" Enable the list of buffers
+" enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 
-" Show just the filename
+" show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-""" Buffer configuration
-" Allow a buffer to be hidden if modified
+""" buffer configuration
+" allow a buffer to be hidden if modified
 set hidden
 
 """ syntastic configuration
@@ -96,13 +97,13 @@ let g:syntastic_puppet_puppetlint_args='--no-80chars-check --no-class_inherits_f
 
 let g:syntastic_javascript_checkers = ['syntastic-javascript-jshint']
 
-""" Shortcuts
-" Move between open buffers.
+""" shortcuts
+" move between open buffers
 nmap <C-n> :bnext<CR>
 nmap <C-p> :bprev<CR>
 nnoremap <Leader>ne :NERDTree<CR>
 
-" 2 space tabs for YAML files
+" 2 space tabs for yaml files
 "autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 set expandtab
 set shiftwidth=2
