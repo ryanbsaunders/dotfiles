@@ -89,3 +89,4 @@ eval "$(rbenv init -)"
 
 # load homebrew gnubin path
 PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
