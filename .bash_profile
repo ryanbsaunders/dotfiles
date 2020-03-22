@@ -84,9 +84,14 @@ function numask() {
 # grep
 alias grep='grep --color=auto' #colorize grep output
 
+
 # set up rbenv
-eval "$(rbenv init -)"
+if command -v rbenv &> /dev/null; then
+  eval "$(rbenv init -)"
+fi
 
 # load homebrew gnubin path
-PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+if command -v brew &> /dev/null; then
+  PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+  export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+fi
