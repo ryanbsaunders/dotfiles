@@ -95,3 +95,8 @@ if command -v brew &> /dev/null; then
   PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
   export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 fi
+
+# silence macos zsh warning
+if [ "$(uname)" == "Darwin" ]; then
+  export BASH_SILENCE_DEPRECATION_WARNING=1
+fi
