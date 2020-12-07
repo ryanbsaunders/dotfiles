@@ -28,6 +28,8 @@ alias powercli='docker run --rm -it --entrypoint='/usr/bin/powershell' vmware/po
 alias pubip='curl https://ifconfig.co;echo -n' #show our current public ip
 alias vbm='VBoxManage' #virtalbox manager
 alias mux='tmuxinator'
+alias grep='grep --color=auto' #colorize grep output
+alias ip='ip -color' #colorize ip output
 
 # github aliases
 alias gsb='git show-branch'
@@ -80,10 +82,6 @@ function rmssh() {
 function numask() {
   find $1 -maxdepth 1 -printf "%m:%f\n"
  }
-
-# grep
-alias grep='grep --color=auto' #colorize grep output
-
 
 # set up rbenv
 if command -v rbenv &> /dev/null; then
