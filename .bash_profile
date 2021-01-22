@@ -30,6 +30,7 @@ alias vbm='VBoxManage' #virtalbox manager
 alias mux='tmuxinator'
 alias grep='grep --color=auto' #colorize grep output
 alias ip='ip -color' #colorize ip output
+alias cdt='cd $(git rev-parse --show-toplevel)'
 
 # github aliases
 alias gsb='git show-branch'

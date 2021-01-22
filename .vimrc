@@ -97,6 +97,7 @@ let g:syntastic_puppet_puppetlint_args='--no-80chars-check --no-class_inherits_f
 let g:syntastic_javascript_checkers = ['syntastic-javascript-jshint']
 
 let g:ansible_unindent_after_newline = 1
+let g:terraform_fmt_on_save=1
 
 """ shortcuts
 " move between open buffers
@@ -105,7 +106,7 @@ nmap <C-p> :bprev<CR>
 nnoremap <Leader>ne :NERDTree<CR>
 
 " 2 space tabs for yaml files
-"autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 set expandtab
 set shiftwidth=2
 set tabstop=2
