@@ -22,7 +22,7 @@ export PS1="\[\e[38;5;048m\]\A\[\e[m\]: \[\e[38;5;208m\]\u\[\e[m\]@\W >  "
 alias lla='ls -la'
 alias ll='ls -l'
 alias vc='vimcat' #i never use this anymore.  can probably send it to space
-alias brup='brew update && brew upgrade && brew upgrade --cask && brew cleanup -s' #update, upgrade, and cleanup homebrew packages
+alias brup='brew update && brew upgrade && brew upgrade --cask && brew cleanup -s --prune=all' #update, upgrade, and cleanup homebrew packages
 alias vundleupdate='vim +BundleUpdate +BundleClean! +qall'  # vundle update
 alias powercli='docker run --rm -it --entrypoint='/usr/bin/powershell' vmware/powerclicore' #run vmware powercli
 alias pubip='curl https://ifconfig.co;echo -n' #show our current public ip
