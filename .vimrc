@@ -3,28 +3,29 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'     "manage vundle with vundle
+Plugin 'VundleVim/Vundle.vim'           "manage vundle with vundle
 
 " plugins to install with vundle
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'rking/ag.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'sjl/badwolf'              " colorscheme
-Plugin 'tpope/vim-fugitive'       " git wrapper
-Plugin 'tpope/vim-rhubarb'        " gitHub plugin for vim-fugitive
-Plugin 'airblade/vim-gitgutter'
-Plugin 'rodjek/vim-puppet'        " puppet syntax support
-Plugin 'vim-ruby/vim-ruby'        " ruby syntax support
-Plugin 'scrooloose/nerdtree'
-Plugin 'PProvost/vim-ps1'         " powershell syntax support
-Plugin 'pearofducks/ansible-vim'  " ansible syntax support
-Plugin 'vim-scripts/groovy.vim'   " groovy syntax support
-Plugin 'yorokobi/vim-splunk'      " splunk conf syntax support
-Plugin 'hashivim/vim-terraform'   " terraform support
-Plugin 'darfink/vim-plist'        " plist support
-Plugin 'godlygeek/tabular'        " text filtering and alignment
-Plugin 'vimwiki/vimwiki'          " vimwiki for wiki stuff with vim
+Plugin 'bling/vim-airline'              " statusline
+Plugin 'vim-airline/vim-airline-themes' " airline themes
+Plugin 'rking/ag.vim'                   " ag / the-silver-searcher
+Plugin 'scrooloose/syntastic'           " syntastic syntax
+Plugin 'sjl/badwolf'                    " colorscheme
+Plugin 'tpope/vim-fugitive'             " git wrapper
+Plugin 'tpope/vim-rhubarb'              " gitHub plugin for vim-fugitive
+Plugin 'airblade/vim-gitgutter'         " git status
+Plugin 'rodjek/vim-puppet'              " puppet syntax support
+Plugin 'vim-ruby/vim-ruby'              " ruby syntax support
+Plugin 'scrooloose/nerdtree'            " nerdtree
+Plugin 'PProvost/vim-ps1'               " powershell syntax support
+Plugin 'pearofducks/ansible-vim'        " ansible syntax support
+Plugin 'vim-scripts/groovy.vim'         " groovy syntax support
+Plugin 'yorokobi/vim-splunk'            " splunk conf syntax support
+Plugin 'hashivim/vim-terraform'         " terraform support
+Plugin 'darfink/vim-plist'              " plist support
+Plugin 'godlygeek/tabular'              " text filtering and alignment
+Plugin 'vimwiki/vimwiki'                " vimwiki for wiki stuff with vim
+Plugin 'edkolev/tmuxline.vim'           " tmuxline
 
 call vundle#end()
 
@@ -37,14 +38,14 @@ catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 
 """ Basic configuration
-set nocompatible                  " no vi compatibility
-set mouse=                        " disable the damn mouse
+set nocompatible                        " no vi compatibility
+set mouse=                              " disable the damn mouse
 set shell=/bin/bash
 set backspace=indent,eol,start
-set number                        " show line numbers
-set cursorline                    " highlight current line
-syntax on                         " turn on syntax highlighting
-filetype plugin indent on         " turn on filetype detection plugin
+set number                              " show line numbers
+set cursorline                          " highlight current line
+syntax on                               " turn on syntax highlighting
+filetype plugin indent on               " turn on filetype detection plugin
 
 " Set a leader
 let mapleader=","
