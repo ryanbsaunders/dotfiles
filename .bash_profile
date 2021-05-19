@@ -57,6 +57,11 @@ alias vp='vagrant provision'
 alias vst='vagrant status'
 alias vbu='vagrant box update'
 
+# terraform aliases
+alias tfv='terraform validate'
+alias tfp='terraform plan'
+alias tfi='terraform init'
+
 # set up hub if it is installed
 # https://github.com/github/hub
 if command -v hub &> /dev/null; then
@@ -110,3 +115,4 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+export PATH="/usr/local/opt/curl/bin:$PATH"
