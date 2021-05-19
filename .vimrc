@@ -25,7 +25,6 @@ Plugin 'hashivim/vim-terraform'         " terraform support
 Plugin 'darfink/vim-plist'              " plist support
 Plugin 'godlygeek/tabular'              " text filtering and alignment
 Plugin 'vimwiki/vimwiki'                " vimwiki for wiki stuff with vim
-Plugin 'edkolev/tmuxline.vim'           " tmuxline
 
 call vundle#end()
 
