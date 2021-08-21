@@ -1,4 +1,4 @@
-# set up bash
+###
 export EDITOR=/usr/bin/vim # set the default editor to vim
 
 # manage path
@@ -17,6 +17,10 @@ export HISTSIZE= # 'unlimited' bash history
 
 # prompt
 export PS1="\[\e[38;5;048m\]\A\[\e[m\]: \[\e[38;5;208m\]\u\[\e[m\]@\W >  "
+
+# colorize output
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # general aliases
 alias lla='ls -la'
@@ -109,10 +113,10 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # set up pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+#export PYENV_ROOT="$HOME/.pyenv"
+#export PATH="$PYENV_ROOT/bin:$PATH"
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+#if command -v pyenv 1>/dev/null 2>&1; then
+#  eval "$(pyenv init -)"
+#fi
 export PATH="/usr/local/opt/curl/bin:$PATH"
