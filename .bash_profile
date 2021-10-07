@@ -3,7 +3,7 @@ export EDITOR=/usr/bin/vim # set the default editor to vim
 
 # manage path
 export PATH="/usr/local/sbin:$PATH"
-export GOPATH="$HOME/go/bin"
+export PATH=$PATH:$(go env GOPATH)/bin/bin
 
 # source bash secrets
 [[ -f ~/.bashrc.secrets ]] && . ~/.bashrc.secrets
@@ -113,10 +113,12 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # set up pyenv
-#export PYENV_ROOT="$HOME/.pyenv"
-#export PATH="$PYENV_ROOT/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
-#if command -v pyenv 1>/dev/null 2>&1; then
-#  eval "$(pyenv init -)"
-#fi
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 export PATH="/usr/local/opt/curl/bin:$PATH"
+eval "$(pyenv init --path)"
