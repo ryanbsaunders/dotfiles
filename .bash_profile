@@ -2,7 +2,7 @@
 export EDITOR=/usr/bin/vim # set the default editor to vim
 
 # manage path
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 export PATH=$PATH:$(go env GOPATH)/bin/bin
 
 # source bash secrets
@@ -124,3 +124,6 @@ fi
 if [ "$(uname)" == "Darwin" ]; then
   export PATH="/usr/local/opt/curl/bin:$PATH"
 fi
+
+# set homebrew path
+eval "$(/opt/homebrew/bin/brew shellenv)"
