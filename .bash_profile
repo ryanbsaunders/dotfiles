@@ -124,8 +124,3 @@ fi
 if [ "$(uname)" == "Darwin" ]; then
   export PATH="/usr/local/opt/curl/bin:$PATH"
 fi
-
-# set homebrew path on macos
-if [ "$(uname)" == "Darwin" ]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
