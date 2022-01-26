@@ -35,6 +35,7 @@ alias grep='grep --color=auto' # colorize grep output
 alias ip='ip -color' # colorize ip output
 alias cdt='cd $(git rev-parse --show-toplevel)' # change directory to the top of the current git repo
 alias wx='curl https://wttr.in' # print the weather
+alias flushdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 
 # github aliases
 alias gsb='git show-branch'
