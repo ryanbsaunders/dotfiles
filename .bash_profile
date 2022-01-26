@@ -11,7 +11,7 @@ export PATH=$PATH:$(go env GOPATH)/bin/bin
 # set up bash history
 HISTTIMEFORMAT="%Y/%m/%d %T " # set timestamps on history
 shopt -s histappend # append history immediately
-PROMPT_COMMAND="history -a;$PROMPT_COMMAND" # append history immediately
+PROMPT_COMMAND="history -a;getCustomWindowName;$PROMPT_COMMAND" # append history immediately
 export HISTFILESIZE= # 'umlimited' bash history
 export HISTSIZE= # 'unlimited' bash history
 
@@ -127,3 +127,12 @@ if [ "$(uname)" == "Darwin" ]; then
   export PATH="/usr/local/opt/curl/bin:$PATH"
 fi
 
+# set tmux window name for git repos
+function getCustomWindowName() {
+  if git rev-parse --git-dir &> /dev/null; then
+     tmux rename-window $(basename `git rev-parse --show-toplevel`);
+  else
+    tmux setw automatic-rename
+    #tmux rename-window $(basename "$PWD")
+  fi
+}
