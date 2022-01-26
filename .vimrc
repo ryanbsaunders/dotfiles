@@ -27,6 +27,7 @@ Plugin 'godlygeek/tabular'              " text filtering and alignment
 Plugin 'vimwiki/vimwiki'                " vimwiki for wiki stuff with vim
 Plugin 'towolf/vim-helm'                " helm syntax
 Plugin 'dense-analysis/ale'             " asynchronous lint engine
+Plugin 'Yggdroot/indentLine'            " show indentation
 
 call vundle#end()
 
@@ -127,3 +128,9 @@ set splitright
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" set up ALE
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+let g:ale_lint_on_text_changed = 'never'
