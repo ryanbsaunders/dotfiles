@@ -26,6 +26,7 @@ Plugin 'darfink/vim-plist'              " plist support
 Plugin 'godlygeek/tabular'              " text filtering and alignment
 Plugin 'vimwiki/vimwiki'                " vimwiki for wiki stuff with vim
 Plugin 'towolf/vim-helm'                " helm syntax
+Plugin 'dense-analysis/ale'             " asynchronous lint engine
 
 call vundle#end()
 
@@ -121,3 +122,8 @@ nnoremap <C-H> <C-W><C-H>
 " make splitting panes not stupid
 set splitbelow
 set splitright
+
+" ultisnips setup
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
