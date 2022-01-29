@@ -837,7 +837,7 @@
 			<key>Title Components</key>
 			<integer>32</integer>
 			<key>Transparency</key>
-			<real>0.1266622340425532</real>
+			<real>0.073874875332446813</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
@@ -855,7 +855,7 @@
 			<key>Visual Bell</key>
 			<false/>
 			<key>Window Type</key>
-			<integer>0</integer>
+			<integer>15</integer>
 			<key>Working Directory</key>
 			<string>/Users/rsaunders/iterm2_prefs</string>
 		</dict>
