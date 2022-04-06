@@ -128,14 +128,16 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 
 # set tmux window name for git repos
-function getCustomWindowName() {
-  if git rev-parse --git-dir &> /dev/null; then
-     tmux rename-window $(basename `git rev-parse --show-toplevel`);
-  else
-    tmux setw automatic-rename
-    #tmux rename-window $(basename "$PWD")
-  fi
-}
+if [ "$TERM" = "screen-256color" ] && [ -n "$TMUX" ]; then
+  function getCustomWindowName() {
+    if git rev-parse --git-dir &> /dev/null; then
+       tmux rename-window $(basename `git rev-parse --show-toplevel`);
+    else
+      tmux setw automatic-rename
+      #tmux rename-window $(basename "$PWD")
+    fi
+  }
+fi
 
 if [ -z "${OP_SUBDOMAIN}" ]; then
   tmux -set -g @1password-subdomain $OP_SUBDOMAIN
