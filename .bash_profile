@@ -1,5 +1,22 @@
-###
+# #
 export EDITOR=/usr/bin/vim # set the default editor to vim
+
+# set up bash completion
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+
+if type brew &>/dev/null
+then
+  HOMEBREW_PREFIX="$(brew --prefix)"
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]
+  then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*
+    do
+      [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+    done
+  fi
+fi
 
 # manage path
 export PATH="/usr/local/bin:$PATH"
@@ -142,3 +159,5 @@ fi
 if [ -z "${OP_SUBDOMAIN}" ]; then
   tmux -set -g @1password-subdomain $OP_SUBDOMAIN
 fi
+
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
