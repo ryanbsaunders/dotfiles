@@ -1,4 +1,3 @@
-# #
 export EDITOR=/usr/bin/vim # set the default editor to vim
 
 # set up bash completion
@@ -116,12 +115,6 @@ if command -v rbenv &> /dev/null; then
   eval "$(rbenv init -)"
 fi
 
-# load homebrew gnubin path
-if command -v brew &> /dev/null; then
-  PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-  export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-fi
-
 # silence macos zsh warning
 if [ "$(uname)" == "Darwin" ]; then
   export BASH_SILENCE_DEPRECATION_WARNING=1
@@ -139,9 +132,18 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+# update homebrew paths
 if [ "$(uname)" == "Darwin" ]; then
-  eval $(/opt/homebrew/bin/brew shellenv)
+  BREWPATH=$(which brew)
+  eval $($BREWPATH shellenv)
   export PATH="/usr/local/opt/curl/bin:$PATH"
+  export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+fi
+
+# load homebrew gnubin path
+if command -v brew &> /dev/null; then
+  PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+  export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 fi
 
 # set tmux window name for git repos
@@ -156,8 +158,7 @@ if [ "$TERM" = "screen-256color" ] && [ -n "$TMUX" ]; then
   }
 fi
 
+# set the 1password-cli subdomain if using a custom domain
 if [ -z "${OP_SUBDOMAIN}" ]; then
   tmux -set -g @1password-subdomain $OP_SUBDOMAIN
 fi
-
-export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
