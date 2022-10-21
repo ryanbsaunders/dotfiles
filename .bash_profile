@@ -160,5 +160,5 @@ fi
 
 # set the 1password-cli subdomain if using a custom domain
 if [ -z "${OP_SUBDOMAIN}" ]; then
-  tmux -set -g @1password-subdomain $OP_SUBDOMAIN
+  tmux set -g @1password-subdomain $OP_SUBDOMAIN
 fi
