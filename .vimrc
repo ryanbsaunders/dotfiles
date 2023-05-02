@@ -6,7 +6,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'           "manage vundle with vundle
 
 " plugins to install with vundle
-Plugin 'bling/vim-airline'              " statusline
+Plugin 'vim-airline/vim-airline'              " statusline
 Plugin 'vim-airline/vim-airline-themes' " airline themes
 Plugin 'rking/ag.vim'                   " ag / the-silver-searcher
 Plugin 'scrooloose/syntastic'           " syntastic syntax
