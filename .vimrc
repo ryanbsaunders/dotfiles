@@ -6,7 +6,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'           "manage vundle with vundle
 
 " plugins to install with vundle
-Plugin 'vim-airline/vim-airline'              " statusline
+Plugin 'vim-airline/vim-airline'        " statusline
 Plugin 'vim-airline/vim-airline-themes' " airline themes
 Plugin 'rking/ag.vim'                   " ag / the-silver-searcher
 Plugin 'scrooloose/syntastic'           " syntastic syntax
@@ -42,7 +42,7 @@ endtry
 """ Basic configuration
 set nocompatible                        " no vi compatibility
 set mouse=                              " disable the damn mouse
-set shell=/bin/bash
+set shell=/usr/bin/env bash
 set backspace=indent,eol,start
 set number                              " show line numbers
 set cursorline                          " highlight current line
