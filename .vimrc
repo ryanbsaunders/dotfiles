@@ -42,10 +42,11 @@ endtry
 """ Basic configuration
 set nocompatible                        " no vi compatibility
 set mouse=                              " disable the damn mouse
-set shell=/bin/bash
-set backspace=indent,eol,start
+set shell=/bin/bash                     " set the shell
+set backspace=indent,eol,start          " allow all backspace use in insert
 set number                              " show line numbers
 set cursorline                          " highlight current line
+set encoding=utf-8                      " set encoding
 syntax on                               " turn on syntax highlighting
 filetype plugin indent on               " turn on filetype detection plugin
 
