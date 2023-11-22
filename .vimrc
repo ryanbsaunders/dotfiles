@@ -42,7 +42,7 @@ endtry
 """ Basic configuration
 set nocompatible                        " no vi compatibility
 set mouse=                              " disable the damn mouse
-set shell=/usr/bin/env bash
+set shell=/bin/bash
 set backspace=indent,eol,start
 set number                              " show line numbers
 set cursorline                          " highlight current line
