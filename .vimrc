@@ -28,6 +28,9 @@ Plugin 'vimwiki/vimwiki'                " vimwiki for wiki stuff with vim
 Plugin 'towolf/vim-helm'                " helm syntax
 Plugin 'dense-analysis/ale'             " asynchronous lint engine
 Plugin 'Yggdroot/indentLine'            " show indentation
+Plugin 'junegunn/fzf'                   " fzf
+Plugin 'junegunn/fzf.vim'               " fzf support
+Plugin 'mileszs/ack.vim'                " ack search support
 
 call vundle#end()
 
@@ -135,3 +138,6 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let g:ale_lint_on_text_changed = 'never'
+
+" set up ack.vim
+let g:ackprg = 'ag --nogroup --nocolor --column'
