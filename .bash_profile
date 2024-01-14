@@ -147,7 +147,7 @@ fi
 # load homebrew gnubin path
 if command -v brew &> /dev/null; then
   PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-  export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+  export PATH="/usr/local/opt/openssl@3/bin:$PATH"
 fi
 
 # set tmux window name for git repos
