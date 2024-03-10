@@ -24,7 +24,10 @@ fi
 
 # manage path
 export PATH="/usr/local/bin:$PATH"
-export PATH=$PATH:$(go env GOPATH)/bin/bin
+
+if type brew &>/dev/null; then
+  export PATH=$PATH:$(go env GOPATH)/bin/bin
+fi
 
 # source bash secrets
 [[ -f ~/.bashrc.secrets ]] && . ~/.bashrc.secrets
