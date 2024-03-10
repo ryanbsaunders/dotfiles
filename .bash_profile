@@ -35,7 +35,7 @@ fi
 # set up bash history
 HISTTIMEFORMAT="%Y/%m/%d %T " # set timestamps on history
 shopt -s histappend # append history immediately
-PROMPT_COMMAND="history -a;getCustomWindowName;$PROMPT_COMMAND" # append history immediately
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND" # append history immediately
 export HISTFILESIZE= # 'umlimited' bash history
 export HISTSIZE= # 'unlimited' bash history
 
@@ -165,6 +165,8 @@ if [ "$TERM" = "screen-256color" ] && [ -n "$TMUX" ]; then
       #tmux rename-window $(basename "$PWD")
     fi
   }
+  # set updated prompt command
+  PROMPT_COMMAND="history -a;getCustomWindowName;$PROMPT_COMMAND" # append history immediately
 fi
 
 # set the 1password-cli subdomain if using a custom domain
