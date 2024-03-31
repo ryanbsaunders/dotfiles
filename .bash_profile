@@ -1,9 +1,9 @@
 export EDITOR=/usr/bin/vim # set the default editor to vim
 
 #set up homebrew path
-if type brew &>/dev/null; then
+#if type brew &>/dev/null; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
+#fi
 
 # set up bash completion
 [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
