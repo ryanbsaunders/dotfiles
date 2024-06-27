@@ -173,3 +173,5 @@ fi
 if [ -z "${OP_SUBDOMAIN}" ]; then
   tmux set -g @1password-subdomain $OP_SUBDOMAIN
 fi
+
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
