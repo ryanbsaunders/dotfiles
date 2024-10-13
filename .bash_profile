@@ -175,3 +175,6 @@ if [ -z "${OP_SUBDOMAIN}" ]; then
 fi
 
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
+# set up path for pipx
+export PATH="$PATH:/Users/rsaunders/.local/bin"
