@@ -31,6 +31,7 @@ Plugin 'Yggdroot/indentLine'            " show indentation
 Plugin 'junegunn/fzf'                   " fzf
 Plugin 'junegunn/fzf.vim'               " fzf support
 Plugin 'mileszs/ack.vim'                " ack search support
+Plugin 'einenlum/yaml-revealer'         " yaml tree nav
 
 call vundle#end()
 
