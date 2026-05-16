@@ -118,7 +118,7 @@ done
 unset _hb_path
 
 # set tmux window name for git repos
-if [ "$TERM" = "screen-256color" ] && [ -n "$TMUX" ]; then
+if [ -n "$TMUX" ]; then
   function getCustomWindowName() {
     if git rev-parse --git-dir &> /dev/null; then
        tmux rename-window $(basename `git rev-parse --show-toplevel`);
