@@ -1,39 +1,49 @@
-" manage plugins with vundle
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" auto-install vim-plug on first run
+let s:plug_bootstrap = 0
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  let s:plug_bootstrap = 1
+endif
 
-Plugin 'VundleVim/Vundle.vim'           "manage vundle with vundle
+" manage plugins with vim-plug
+call plug#begin('~/.vim/plugged')
 
-" plugins to install with vundle
-Plugin 'vim-airline/vim-airline'        " statusline
-Plugin 'vim-airline/vim-airline-themes' " airline themes
-Plugin 'rking/ag.vim'                   " ag / the-silver-searcher
-Plugin 'scrooloose/syntastic'           " syntastic syntax
-Plugin 'sjl/badwolf'                    " colorscheme
-Plugin 'tpope/vim-fugitive'             " git wrapper
-Plugin 'tpope/vim-rhubarb'              " gitHub plugin for vim-fugitive
-Plugin 'airblade/vim-gitgutter'         " git status
-Plugin 'rodjek/vim-puppet'              " puppet syntax support
-Plugin 'vim-ruby/vim-ruby'              " ruby syntax support
-Plugin 'scrooloose/nerdtree'            " nerdtree
-Plugin 'PProvost/vim-ps1'               " powershell syntax support
-Plugin 'pearofducks/ansible-vim'        " ansible syntax support
-Plugin 'vim-scripts/groovy.vim'         " groovy syntax support
-Plugin 'yorokobi/vim-splunk'            " splunk conf syntax support
-Plugin 'hashivim/vim-terraform'         " terraform support
-Plugin 'darfink/vim-plist'              " plist support
-Plugin 'godlygeek/tabular'              " text filtering and alignment
-Plugin 'vimwiki/vimwiki'                " vimwiki for wiki stuff with vim
-Plugin 'towolf/vim-helm'                " helm syntax
-Plugin 'dense-analysis/ale'             " asynchronous lint engine
-Plugin 'Yggdroot/indentLine'            " show indentation
-Plugin 'junegunn/fzf'                   " fzf
-Plugin 'junegunn/fzf.vim'               " fzf support
-Plugin 'mileszs/ack.vim'                " ack search support
-Plugin 'einenlum/yaml-revealer'         " yaml tree nav
+Plug 'vim-airline/vim-airline'        " statusline
+Plug 'vim-airline/vim-airline-themes' " airline themes
+Plug 'rking/ag.vim'                   " ag / the-silver-searcher
+Plug 'scrooloose/syntastic'           " syntastic syntax
+Plug 'sjl/badwolf'                    " colorscheme
+Plug 'tpope/vim-fugitive'             " git wrapper
+Plug 'tpope/vim-rhubarb'              " gitHub plugin for vim-fugitive
+Plug 'airblade/vim-gitgutter'         " git status
+Plug 'rodjek/vim-puppet'              " puppet syntax support
+Plug 'vim-ruby/vim-ruby'               " ruby syntax support
+Plug 'scrooloose/nerdtree'            " nerdtree
+Plug 'PProvost/vim-ps1'               " powershell syntax support
+Plug 'pearofducks/ansible-vim'        " ansible syntax support
+Plug 'vim-scripts/groovy.vim'         " groovy syntax support
+Plug 'yorokobi/vim-splunk'            " splunk conf syntax support
+Plug 'hashivim/vim-terraform'         " terraform support
+Plug 'darfink/vim-plist'              " plist support
+Plug 'godlygeek/tabular'               " text filtering and alignment
+Plug 'vimwiki/vimwiki'                " vimwiki for wiki stuff with vim
+Plug 'towolf/vim-helm'                " helm syntax
+Plug 'dense-analysis/ale'             " asynchronous lint engine
+Plug 'Yggdroot/indentLine'            " show indentation
+Plug 'junegunn/fzf'                   " fzf
+Plug 'junegunn/fzf.vim'               " fzf support
+Plug 'mileszs/ack.vim'                " ack search support
+Plug 'einenlum/yaml-revealer'         " yaml tree nav
 
-call vundle#end()
+call plug#end()
+
+" on first run, install plugins then re-source vimrc so plugin-dependent
+" config below (statusline, etc.) sees everything; finish here this pass
+if s:plug_bootstrap
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  finish
+endif
 
 " Set the colorscheme if available
 try

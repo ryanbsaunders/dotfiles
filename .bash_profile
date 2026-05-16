@@ -51,7 +51,7 @@ alias lla='ls -la'
 alias ll='ls -l'
 alias vc='vimcat' # i never use this anymore.  can probably send it to space
 alias brup='brew update && brew upgrade && brew upgrade --cask && brew cleanup -s --prune=all' # update, upgrade, and cleanup homebrew packages
-alias vundleupdate='vim +BundleUpdate +BundleClean! +qall'  # vundle update
+alias vimplugupdate='vim +PlugUpgrade +PlugUpdate +PlugClean! +qall'  # vim-plug self-upgrade, plugin update + clean
 alias powercli='docker run --rm -it --entrypoint='/usr/bin/powershell' vmware/powerclicore' # run vmware powercli
 alias pubip='curl https://ifconfig.co;echo -n' # show our current public ip
 alias vbm='VBoxManage' # virtalbox manager
