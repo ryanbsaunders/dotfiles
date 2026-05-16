@@ -1,4 +1,4 @@
-#/usr/bin/env bash
+#!/usr/bin/env bash
 PRIVIPS=$(
 for ifcfg in $(ifconfig -lu);
 

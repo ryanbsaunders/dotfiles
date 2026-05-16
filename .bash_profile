@@ -22,11 +22,9 @@ then
   fi
 fi
 
-# manage path
-export PATH="/usr/local/bin:$PATH"
-
-if type brew &>/dev/null; then
-  export PATH=$PATH:$(go env GOPATH)/bin/bin
+# add Go binaries to PATH if Go is installed
+if command -v go &> /dev/null; then
+  export PATH="$PATH:$(go env GOPATH)/bin"
 fi
 
 # source bash secrets
@@ -49,12 +47,10 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 # general aliases
 alias lla='ls -la'
 alias ll='ls -l'
-alias vc='vimcat' # i never use this anymore.  can probably send it to space
 alias brup='brew update && brew upgrade && brew upgrade --cask && brew cleanup -s --prune=all' # update, upgrade, and cleanup homebrew packages
 alias vimplugupdate='vim +PlugUpgrade +PlugUpdate +PlugClean! +qall'  # vim-plug self-upgrade, plugin update + clean
 alias powercli='docker run --rm -it --entrypoint='/usr/bin/powershell' vmware/powerclicore' # run vmware powercli
 alias pubip='curl https://ifconfig.co;echo -n' # show our current public ip
-alias vbm='VBoxManage' # virtalbox manager
 alias grep='grep --color=auto' # colorize grep output
 alias ip='ip -color' # colorize ip output
 alias cdt='cd $(git rev-parse --show-toplevel)' # change directory to the top of the current git repo
@@ -68,46 +64,18 @@ alias gco='git checkout'
 alias gpo='git push origin'
 alias gcl='git clone'
 alias grh='git reset --hard'
-alias gpr='git pull-request -o'
-alias gci='git ci-status -v'
-alias gcist='~/bin/hub_ci_status.sh'
+alias gpr='gh pr create'
+alias gci='gh pr checks'
 alias gst='git status'
 alias gpl='git pull'
 alias gdf='git diff'
 alias gcam='git commit -am'
 alias gcm='git commit -m'
 
-# vagrant aliases
-alias vs='vagrant ssh'
-alias vd='vagrant destroy --force'
-alias vr='vagrant reload'
-alias vu='vagrant up'
-alias vh='vagrant halt'
-alias vp='vagrant provision'
-alias vst='vagrant status'
-alias vbu='vagrant box update'
-
 # terraform aliases
 alias tfv='terraform validate'
 alias tfp='terraform plan'
 alias tfi='terraform init'
-
-# set up hub if it is installed
-# https://github.com/github/hub
-if command -v hub &> /dev/null; then
-  # set gitgub Hub alias
-  eval "$(hub alias -s)" 
-
-  # use hub with github enterprise on a custom domain
-  # read custom ghe name from .bashsecrets
-  function ghe() {
-    GITHUB_HOST=$GITHUB_ENTERPRISE_DOMAIN hub $*
-    }
-
-    function ghe-setup() {
-      git config --add hub.host $GITHUB_ENTERPRISE_DOMAIN
-  }
-fi
 
 # remove old ssh host key
 function rmssh() {
@@ -141,19 +109,13 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-# update homebrew paths
-if [ "$(uname)" == "Darwin" ]; then
-  BREWPATH=$(which brew)
-  eval $($BREWPATH shellenv)
-  export PATH="/usr/local/opt/curl/bin:$PATH"
-  export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
-fi
-
-# load homebrew gnubin path
-if command -v brew &> /dev/null; then
-  PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-  export PATH="/usr/local/opt/openssl@3/bin:$PATH"
-fi
+# optional homebrew formula paths (only prepend if installed)
+for _hb_path in \
+  "${HOMEBREW_PREFIX}/opt/openssl@3/bin" \
+  "${HOMEBREW_PREFIX}/opt/findutils/libexec/gnubin"; do
+  [ -d "$_hb_path" ] && export PATH="$_hb_path:$PATH"
+done
+unset _hb_path
 
 # set tmux window name for git repos
 if [ "$TERM" = "screen-256color" ] && [ -n "$TMUX" ]; then
@@ -170,11 +132,11 @@ if [ "$TERM" = "screen-256color" ] && [ -n "$TMUX" ]; then
 fi
 
 # set the 1password-cli subdomain if using a custom domain
-if [ -z "${OP_SUBDOMAIN}" ]; then
-  tmux set -g @1password-subdomain $OP_SUBDOMAIN
+if [ -n "${OP_SUBDOMAIN}" ]; then
+  tmux set -g @1password-subdomain "$OP_SUBDOMAIN"
 fi
 
-export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+[ -d "${HOMEBREW_PREFIX}/opt/postgresql@15/bin" ] && export PATH="${HOMEBREW_PREFIX}/opt/postgresql@15/bin:$PATH"
 
 # set up path for pipx
-export PATH="$PATH:/Users/rsaunders/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"

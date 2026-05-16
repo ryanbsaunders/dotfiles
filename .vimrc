@@ -11,8 +11,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'        " statusline
 Plug 'vim-airline/vim-airline-themes' " airline themes
-Plug 'rking/ag.vim'                   " ag / the-silver-searcher
-Plug 'scrooloose/syntastic'           " syntastic syntax
 Plug 'sjl/badwolf'                    " colorscheme
 Plug 'tpope/vim-fugitive'             " git wrapper
 Plug 'tpope/vim-rhubarb'              " gitHub plugin for vim-fugitive
@@ -105,15 +103,6 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " allow a buffer to be hidden if modified
 set hidden
 
-""" syntastic configuration
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_puppet_puppetlint_args='--no-80chars-check --no-class_inherits_from_params_class-check --no-variable_scope-check --no-documentation-check --no-autoloader_layout-check'
-let g:syntastic_javascript_checkers = ['syntastic-javascript-jshint']
-
 let g:ansible_unindent_after_newline = 1
 let g:terraform_fmt_on_save=1
 
@@ -138,11 +127,6 @@ nnoremap <C-H> <C-W><C-H>
 " make splitting panes not stupid
 set splitbelow
 set splitright
-
-" ultisnips setup
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " set up ALE
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
