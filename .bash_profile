@@ -132,7 +132,9 @@ if [ -n "$TMUX" ]; then
 fi
 
 # set the 1password-cli subdomain if using a custom domain
-if [ -n "${OP_SUBDOMAIN}" ]; then
+# (only meaningful inside tmux; running `tmux set` without a server
+# errors with "no server running")
+if [ -n "$TMUX" ] && [ -n "${OP_SUBDOMAIN}" ]; then
   tmux set -g @1password-subdomain "$OP_SUBDOMAIN"
 fi
 
@@ -140,3 +142,10 @@ fi
 
 # set up path for pipx
 export PATH="$PATH:$HOME/.local/bin"
+
+# auto-attach to (or create) a default tmux session for interactive
+# shells outside an existing tmux. -t 1 keeps non-interactive shells
+# (scripts, scp, etc.) from getting hijacked.
+if [ -z "$TMUX" ] && [ -t 1 ] && command -v tmux >/dev/null 2>&1; then
+  exec tmux new-session -A -s main
+fi
