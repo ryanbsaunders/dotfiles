@@ -47,7 +47,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 # general aliases
 alias lla='ls -la'
 alias ll='ls -l'
-alias brup='brew update && brew upgrade && brew upgrade --cask && brew cleanup -s --prune=all' # update, upgrade, and cleanup homebrew packages
+alias brup='brew update && brew upgrade && brew upgrade --cask --greedy-latest && brew cleanup -s --prune=all' # update/upgrade/cleanup; --greedy-latest catches version:latest casks (HB6 already auto-upgrades stale auto_updates casks)
 alias vimplugupdate='vim +PlugUpgrade +PlugUpdate +PlugClean! +qall'  # vim-plug self-upgrade, plugin update + clean
 alias powercli='docker run --rm -it --entrypoint='/usr/bin/powershell' vmware/powerclicore' # run vmware powercli
 alias pubip='curl https://ifconfig.co;echo -n' # show our current public ip
