@@ -143,6 +143,16 @@ fi
 # set up path for pipx
 export PATH="$PATH:$HOME/.local/bin"
 
+# 1Password service-account token for the `op` CLI. This block previously
+# lived only in ~/.zshrc, which this login shell (bash) never reads — so `op`
+# silently had no token and every command needed a manual export.
+#
+# Must stay ABOVE the tmux block below: that block `exec`s, replacing the
+# shell, so anything placed after it never runs on first login.
+if [ -f ~/.config/op/service-account-token ]; then
+  export OP_SERVICE_ACCOUNT_TOKEN=$(tr -d '\n' < ~/.config/op/service-account-token)
+fi
+
 # auto-attach to (or create) a default tmux session for interactive
 # shells outside an existing tmux. -t 1 keeps non-interactive shells
 # (scripts, scp, etc.) from getting hijacked.
