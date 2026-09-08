@@ -1,9 +1,9 @@
 export EDITOR=/usr/bin/vim # set the default editor to vim
 
-#set up homebrew path
-#if type brew &>/dev/null; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-#fi
+# set up homebrew path. This line is what puts brew ON the PATH, so the guard
+# has to test the binary by path -- `type brew` is necessarily false this early
+# and would stop brew from ever being bootstrapped. Skips cleanly on Linux.
+[ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # set up bash completion
 [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
