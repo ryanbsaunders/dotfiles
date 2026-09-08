@@ -1,0 +1,70 @@
+# Shared interactive shell configuration.
+#
+# Sourced by ~/.bash_profile on macOS and from ~/.bashrc on Linux dev hosts
+# (below the non-interactive guard -- aliases and PS1 are interactive-only).
+# Keep this file OS-agnostic: anything macOS-specific belongs behind a guard.
+
+# source bash secrets
+[[ -f ~/.bashrc.secrets ]] && . ~/.bashrc.secrets
+
+# set up bash history
+HISTTIMEFORMAT="%Y/%m/%d %T " # set timestamps on history
+shopt -s histappend # append history immediately
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND" # append history immediately
+export HISTFILESIZE= # 'umlimited' bash history
+export HISTSIZE= # 'unlimited' bash history
+
+# prompt
+export PS1="\[\e[38;5;048m\]\A\[\e[m\]: \[\e[38;5;208m\]\u\[\e[m\]@\W >  "
+
+# colorize output. LSCOLORS is BSD syntax and simply ignored by GNU ls.
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# general aliases
+alias lla='ls -la'
+alias ll='ls -l'
+alias vimplugupdate='vim +PlugUpgrade +PlugUpdate +PlugClean! +qall'  # vim-plug self-upgrade, plugin update + clean
+alias powercli='docker run --rm -it --entrypoint='/usr/bin/powershell' vmware/powerclicore' # run vmware powercli
+alias pubip='curl https://ifconfig.co;echo -n' # show our current public ip
+alias grep='grep --color=auto' # colorize grep output
+alias ip='ip -color' # colorize ip output
+alias cdt='cd $(git rev-parse --show-toplevel)' # change directory to the top of the current git repo
+alias wx='curl https://wttr.in' # print the weather
+alias digs="dig +short"
+
+# macOS-only aliases. Guarded so this file stays sourceable on Linux.
+if [ "$(uname)" = "Darwin" ]; then
+  alias brup='brew update && brew upgrade && brew upgrade --cask --greedy-latest && brew cleanup -s' # update/upgrade/cleanup; --greedy-latest catches version:latest casks (HB6 already auto-upgrades stale auto_updates casks)
+  alias flushdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
+fi
+
+# github aliases
+alias gsb='git show-branch'
+alias gco='git checkout'
+alias gpo='git push origin'
+alias gcl='git clone'
+alias grh='git reset --hard'
+alias gpr='gh pr create'
+alias gci='gh pr checks'
+alias gst='git status'
+alias gpl='git pull'
+alias gdf='git diff'
+alias gcam='git commit -am'
+alias gcm='git commit -m'
+
+# terraform aliases
+alias tfv='terraform validate'
+alias tfp='terraform plan'
+alias tfi='terraform init'
+
+# remove old ssh host key
+function rmssh() {
+  ssh-keygen -R $1
+}
+
+# show umask for given file. NOTE: find -printf is GNU-only; this works on
+# Linux and fails on macOS BSD find. Pre-existing, tracked separately.
+function numask() {
+  find $1 -maxdepth 1 -printf "%m:%f\n"
+ }

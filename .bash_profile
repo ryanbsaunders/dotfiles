@@ -27,65 +27,8 @@ if command -v go &> /dev/null; then
   export PATH="$PATH:$(go env GOPATH)/bin"
 fi
 
-# source bash secrets
-[[ -f ~/.bashrc.secrets ]] && . ~/.bashrc.secrets
-
-# set up bash history
-HISTTIMEFORMAT="%Y/%m/%d %T " # set timestamps on history
-shopt -s histappend # append history immediately
-PROMPT_COMMAND="history -a;$PROMPT_COMMAND" # append history immediately
-export HISTFILESIZE= # 'umlimited' bash history
-export HISTSIZE= # 'unlimited' bash history
-
-# prompt
-export PS1="\[\e[38;5;048m\]\A\[\e[m\]: \[\e[38;5;208m\]\u\[\e[m\]@\W >  "
-
-# colorize output
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
-
-# general aliases
-alias lla='ls -la'
-alias ll='ls -l'
-alias brup='brew update && brew upgrade && brew upgrade --cask --greedy-latest && brew cleanup -s' # update/upgrade/cleanup; --greedy-latest catches version:latest casks (HB6 already auto-upgrades stale auto_updates casks)
-alias vimplugupdate='vim +PlugUpgrade +PlugUpdate +PlugClean! +qall'  # vim-plug self-upgrade, plugin update + clean
-alias powercli='docker run --rm -it --entrypoint='/usr/bin/powershell' vmware/powerclicore' # run vmware powercli
-alias pubip='curl https://ifconfig.co;echo -n' # show our current public ip
-alias grep='grep --color=auto' # colorize grep output
-alias ip='ip -color' # colorize ip output
-alias cdt='cd $(git rev-parse --show-toplevel)' # change directory to the top of the current git repo
-alias wx='curl https://wttr.in' # print the weather
-alias flushdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
-alias digs="dig +short"
-
-# github aliases
-alias gsb='git show-branch'
-alias gco='git checkout'
-alias gpo='git push origin'
-alias gcl='git clone'
-alias grh='git reset --hard'
-alias gpr='gh pr create'
-alias gci='gh pr checks'
-alias gst='git status'
-alias gpl='git pull'
-alias gdf='git diff'
-alias gcam='git commit -am'
-alias gcm='git commit -m'
-
-# terraform aliases
-alias tfv='terraform validate'
-alias tfp='terraform plan'
-alias tfi='terraform init'
-
-# remove old ssh host key
-function rmssh() {
-  ssh-keygen -R $1
-}
-
-# show umask for given file
-function numask() {
-  find $1 -maxdepth 1 -printf "%m:%f\n"
- }
+# shared interactive config, also sourced by ~/.bashrc on Linux dev hosts
+[ -r ~/.shrc.common ] && . ~/.shrc.common
 
 # set up rbenv
 if command -v rbenv &> /dev/null; then
