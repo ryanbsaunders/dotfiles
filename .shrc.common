@@ -15,7 +15,7 @@ export HISTFILESIZE= # 'umlimited' bash history
 export HISTSIZE= # 'unlimited' bash history
 
 # prompt
-export PS1="\[\e[38;5;048m\]\A\[\e[m\]: \[\e[38;5;208m\]\u\[\e[m\]@\W >  "
+export PS1="\[\e[38;5;048m\]\A\[\e[m\]: \[\e[38;5;208m\]\u@\h\[\e[m\]:\W >  "
 
 # colorize output. LSCOLORS is BSD syntax and simply ignored by GNU ls.
 export CLICOLOR=1

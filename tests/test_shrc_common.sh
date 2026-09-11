@@ -53,6 +53,11 @@ else
   fail=1
 fi
 
+case "$ps1" in
+  *'\h'*) echo "PASS case1: prompt includes the hostname" ;;
+  *)      echo "FAIL case1: prompt has no hostname -- hosts are indistinguishable"; fail=1 ;;
+esac
+
 # macOS-only aliases must NOT leak onto Linux.
 for a in brup flushdns; do
   if env -i HOME="$WORK" PATH="$LINUX_PATH" bash --norc -c \
