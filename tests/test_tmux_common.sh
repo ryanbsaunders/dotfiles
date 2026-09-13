@@ -13,7 +13,8 @@ fail=0
 
 # Must contain the genuinely shared settings.
 for want in "history-limit 50000" "mode-keys vi" "base-index 1" \
-            "renumber-windows on" "focus-events on" "select-pane -D"; do
+            "renumber-windows on" "focus-events on" "select-pane -D" \
+            "bind-key v run-shell -b '~/bin/tmux_claude_fork.py \"#{pane_id}\"'"; do
   if grep -qF -- "$want" "$COMMON"; then
     echo "PASS: contains '$want'"
   else
